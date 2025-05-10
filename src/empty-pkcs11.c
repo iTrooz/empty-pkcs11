@@ -961,7 +961,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_GetInterface)(CK_UTF8CHAR_PTR pInterfaceName, CK_VER
 	if (flags != 0)
 	{
 		*ppInterface = NULL;
-		return CKR_OK;
+		return CKR_ARGUMENTS_BAD;
 	}
 
 	if (NULL != pInterfaceName)
@@ -972,7 +972,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_GetInterface)(CK_UTF8CHAR_PTR pInterfaceName, CK_VER
 		if (strlen(requested_interface_name) != strlen(supported_interface_name) || 0 != strcmp(requested_interface_name, supported_interface_name))
 		{
 			*ppInterface = NULL;
-			return CKR_OK;
+			return CKR_ARGUMENTS_BAD;
 		}
 	}
 
@@ -991,7 +991,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_GetInterface)(CK_UTF8CHAR_PTR pInterfaceName, CK_VER
 		else
 		{
 			*ppInterface = NULL;
-			return CKR_OK;
+			return CKR_ARGUMENTS_BAD;
 		}
 	}
 
